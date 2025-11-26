@@ -1,0 +1,159 @@
+.\" Man page for serenium
+.TH SERENIUM 1 "2024-01-01" "Serenium 1.0.0" "User Commands"
+.SH NAME
+serenium \- A production-ready package builder for creating Debian packages
+.SH SYNOPSIS
+.B serenium
+[\fIOPTIONS\fR]...
+.SH DESCRIPTION
+Serenium is a production-ready tool to scaffold new packages with proper Debian packaging structure. It provides an intuitive interface for creating both regular packages and metapackages with comprehensive validation, configuration file support, and beautiful terminal themes.
+.SH OPTIONS
+.TP
+\fB\-\-help\fR, \fB\-h\fR
+Show help message and exit.
+.TP
+\fB\-\-version\fR, \fB\-v\fR
+Show version information and exit.
+.TP
+\fB\-\-config\fR=\fIFILE\fR, \fB\-c\fR \fIFILE\fR
+Load configuration from YAML or JSON file.
+.TP
+\fB\-\-theme\fR=\fITHEME\fR, \fB\-t\fR \fITHEME\fR
+Select terminal theme. Available themes: serenium, cyberpunk, ocean, forest, sunset, monochrome, neon, matrix.
+.TP
+\fB\-\-create-sample-config\fR
+Create a sample configuration file and exit.
+.SH EXAMPLES
+.TP
+Interactive mode
+.B serenium
+.TP
+Use configuration file
+.B serenium \-\-config my-package.yaml
+.TP
+Specify theme
+.B serenium \-\-theme ocean
+.TP
+Create sample configuration
+.B serenium \-\-create-sample-config
+.SH CONFIGURATION FILES
+Serenium supports both YAML and JSON configuration files for automated package creation. A sample configuration file can be generated using the \fB\-\-create-sample-config\fR option.
+.PP
+Example YAML configuration:
+.nf
+.RS
+name: my-package
+version: 1.0.0
+description: My awesome package
+is_metapackage: false
+dependencies:
+  - python3
+  - python3-yaml
+maintainer: Your Name
+email: your.email@example.com
+.RE
+.fi
+.SH THEMES
+Serenium includes multiple beautiful terminal themes:
+.RS
+.IP \[bu] 2
+serenium (default) - Clean cyan and blue theme
+.IP \[bu] 2
+cyberpunk - Bold magenta and cyan theme
+.IP \[bu] 2
+ocean - Calming blue theme
+.IP \[bu] 2
+forest - Natural green theme
+.IP \[bu] 2
+sunset - Warm yellow and red theme
+.IP \[bu] 2
+monochrome - Clean black and white theme
+.IP \[bu] 2
+neon - Bright electric colors
+.IP \[bu] 2
+matrix - Classic green matrix theme
+.RE
+.SH PACKAGE TYPES
+.TP
+Regular packages
+Include actual files and scripts, can have desktop entries, appear in application menus, and include launcher scripts for tools.
+.TP
+Metapackages
+Only install dependencies, no files included (except Debian packaging), useful for creating tool collections, and have smaller package size.
+.SH VALIDATION
+Serenium includes comprehensive validation:
+.RS
+.IP \[bu] 2
+Package Name Validation: Ensures names follow Debian standards
+.IP \[bu] 2
+Version Validation: Semantic versioning format checking
+.IP \[bu] 2
+Email Validation: Basic email format verification
+.IP \[bu] 2
+Input Sanitization: Removes potentially dangerous characters
+.IP \[bu] 2
+File Permission Checks: Ensures executable files have correct permissions
+.IP \[bu] 2
+Dependency Validation: Warns about potential issues
+.RE
+.SH LOGGING
+Serenium provides detailed logging for debugging. Logs are written to \fBserenium.log\fR in the current directory.
+.SH FILES
+.TP
+.I serenium.log
+Application log file
+.TP
+.I serenium-config.yaml
+Default configuration file created by \fB\-\-create-sample-config\fR
+.TP
+.I ~/.local/share/serenium/
+User data directory (if created by package installation)
+.SH ENVIRONMENT
+.TP
+.B NO_COLOR
+If set, disables colored output
+.SH EXIT STATUS
+.TP
+.B 0
+Success
+.TP
+.B 1
+General error
+.TP
+.B 2
+Invalid command line arguments
+.TP
+.B 3
+Configuration file error
+.TP
+.B 4
+Validation error
+.SH DIAGNOSTICS
+The following error messages may be displayed:
+.RS
+.IP "Package name cannot be empty"
+The package name field is required.
+.IP "Package name too long (max 255 characters)"
+Package names must be 255 characters or less.
+.IP "Package name contains invalid characters"
+Package names cannot contain special characters like !#$&*|;:"<>?/\\[]{}.
+.IP "Package name must start with alphanumeric character"
+Package names must start with a letter or number.
+.IP "Package name cannot contain spaces"
+Package names cannot have spaces.
+.IP "Version must follow semantic versioning (e.g., 1.0.0)"
+Versions must be in the format X.Y.Z.
+.IP "Invalid email format"
+Email addresses must be in a valid format.
+.RE
+.SH BUGS
+Report bugs at: https://github.com/serenium/serenium/issues
+.SH AUTHOR
+Serenium Team <team@serenium.org>
+.SH SEE ALSO
+.BR dpkg (1),
+.BR debhelper (7),
+.BR dh (1),
+.BR dpkg-buildpackage (1)
+.SH LICENSE
+This program is licensed under the MIT License.
